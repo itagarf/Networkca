@@ -1,13 +1,13 @@
 
-FROM python:3.8-slim-buster
+FROM node:alpine
 
-WORKDIR /app
-EXPOSE 80
+WORKDIR /usr/app
 
-COPY requirements.txt requirements.txt
 
-RUN pip3 install -r requirements.txt
+COPY packages*.json ./
+
+RUN npm install
 
 COPY . .
 
-CMD ["python3", "-m", "flask", "run", "--port", "80"]
+CMD ["npm", "start"]
