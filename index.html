@@ -51,9 +51,8 @@ nav ul li :hover{
   color:darkslategrey;
 }
 .homeDecorBox{
-    position: absolute;
-    width: 80%;
-    left: 7%;
+    position:static;
+    width: 90%;
 }
 .homeDecor{
     align-items: center;
@@ -64,6 +63,63 @@ nav ul li :hover{
     width: 900px;
     height: 500px;
 }
+.mobileNavBtn{
+  color: navy;
+  font-size: 25px;
+  cursor: pointer;
+  float: right;
+  display: none;
+}
+
+#mobileNav{
+  display: none;
+}
+@media screen and (max-width: 992px){
+    nav{
+    padding:0px 30px;
+  }
+  .mobileNavBtn{
+    display: block;
+  }
+  nav .menuBar h2{
+    font-size: 25px;
+    float: left;
+  }
+  nav ul{
+    width: 70%;
+    height: 60vh;
+    background-color:cornflowerblue;
+    position: fixed;
+    left: -100%;
+    transition: 0.3s ease;
+    top: 75px;
+    text-align: center;
+  }
+  nav ul li{
+    display: block;
+    margin: 50px 0px;
+    line-height: 20px;
+  }
+  #mobileNav:checked ~ ul{
+    left:0;
+  }
+.homeDecorBox{
+    display: block;
+    align-items: center;
+    flex-wrap: nowrap;
+    width: calc(100% - 15vw);
+}
+.homeDecor{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.homeDecor img{
+    display: block;
+    height: 270px;
+    width: 100%;
+}
+}
     </style>
 </head>
 <body>
@@ -71,6 +127,10 @@ nav ul li :hover{
         <div class="menu">
             <nav>
                 <h2>Home<span style="color: lemonchiffon; font-size: 30px;">Inspire</span></h2>
+                <input type="checkbox" id="mobileNav">
+              <label for="mobileNav" class="mobileNavBtn">
+                <i class="fas fa-bars"></i>
+              </label>
                 <ul>
                     <li><a href="#">Home Decor</a></li>
                     <li><a href="#">Kitchen</a></li>                
